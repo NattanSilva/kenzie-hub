@@ -1,4 +1,4 @@
-const { createGlobalStyle } = require("styled-components");
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -10,9 +10,13 @@ export const GlobalStyle = createGlobalStyle`
     --gray-3: #212529;
     --gray-2: #343B41;
     --gray-1: #868E96;
+    --gray-0: #F8F9FA;
 
     --feedback-sucess: #3FE864;
     --feedback-error: #E83F5B;
+
+    --white-fixed: #FFFFFF;
+    --black-fixed: #000000;
   }
 
   *{
@@ -23,7 +27,11 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
+  }
 
+  html, 
+  body {
+    background: var(--black-fixed);
   }
 
   button {

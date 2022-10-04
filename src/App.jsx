@@ -1,11 +1,14 @@
 import { Routes, Route } from "react-router-dom";
+import { Register } from "./pages/Register";
 import GlobalStyle from "./styles/reset";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Olá Mundo!</h1>
+      <Routes>
+        <Route path="/" element={<Register />} />
+      </Routes>
     </>
   );
 }
