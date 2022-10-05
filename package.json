@@ -9,14 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
     "axios": "^0.27.2",
     "eslint": "^8.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
     "react-router-dom": "^6.4.1",
     "react-toastify": "^9.0.8",
     "styled-components": "^5.3.6",
-    "vercel": "^28.4.6"
+    "vercel": "^28.4.6",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
