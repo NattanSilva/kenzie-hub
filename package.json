@@ -17,6 +17,7 @@
     "react-hook-form": "^7.36.1",
     "react-router-dom": "^6.4.1",
     "react-select": "^5.4.0",
+    "react-spinners": "^0.13.5",
     "react-toastify": "^9.0.8",
     "styled-components": "^5.3.6",
     "vercel": "^28.4.6",

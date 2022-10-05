@@ -40,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     transition: .3s ease-in-out;
+    cursor: pointer;
   }
 
   img {

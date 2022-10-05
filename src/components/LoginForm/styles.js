@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -84,8 +85,17 @@ export const FormBtn = styled.button`
   }
 `;
 
-export const SwitchPageBtn = styled.button`
+export const SwitchPageBtn = styled(Link)`
+  width: 100%;
+  height: 2.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--white-fixed);
   background: var(--gray-1);
+  transition: 0.3s ease-in-out;
 
   &:hover {
     background: var(--gray-2);

@@ -1,16 +1,26 @@
 import { LoginForm } from "../../components/LoginForm";
 import { LogoType, WrappContainer, Wrapper } from "./styles";
 import Logo from "../../assets/images/Logo.svg";
+import { useEffect } from "react";
+import { Loader } from "../../components/Loader";
 
-export const Login = () => {
+export const Login = ({ isLoaded, setIsLoaded }) => {
+  useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 1000);
+  }, []);
+
   return (
     <Wrapper>
-      <WrappContainer>
-        <LogoType>
-          <img src={Logo} alt="Logo escrtio KenzieHub" />
-        </LogoType>
-        <LoginForm />
-      </WrappContainer>
+      {isLoaded ? (
+        <WrappContainer>
+          <LogoType>
+            <img src={Logo} alt="Logo escrtio KenzieHub" />
+          </LogoType>
+          <LoginForm />
+        </WrappContainer>
+      ) : (
+        <Loader />
+      )}
     </Wrapper>
   );
 };
