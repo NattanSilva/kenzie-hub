@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import {
   FormBtn,
   FormContainer,
@@ -26,7 +27,9 @@ export const LoginForm = () => {
         <FormBtn type="submit">Entrar</FormBtn>
       </MainForm>
       <SubTitle>Ainda não possui uma conta?</SubTitle>
-      <SwitchPageBtn type="button">Cadastre-se</SwitchPageBtn>
+      <SwitchPageBtn to="/register" onClick={() => setIsLoaded(false)}>
+        Cadastre-se
+      </SwitchPageBtn>
     </FormContainer>
   );
 };
