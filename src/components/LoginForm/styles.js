@@ -10,6 +10,10 @@ export const FormContainer = styled.div`
   background: var(--gray-3);
   border-radius: var(--form-border-radius);
 
+  &.register {
+    margin-bottom: 2.5rem;
+  }
+
   h3,
   label {
     color: var(--gray-0);
@@ -33,7 +37,6 @@ export const MainTitle = styled.h3`
 `;
 
 export const SubTitle = styled.p`
-  margin-top: 14px;
   font-size: 0.625rem;
   color: var(--gray-1);
 `;
@@ -63,6 +66,7 @@ export const InputContent = styled.input`
   display: flex;
   align-items: center;
   background: var(--gray-2);
+  font-size: 0.813rem;
   color: var(--gray-0);
   outline-color: var(--gray-0);
 
