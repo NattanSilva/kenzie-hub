@@ -1,3 +1,14 @@
+import { WrappContainer, Wrapper } from "../Login/styles";
+import { RegistForm } from "../../components/RegistForm";
+import { RegistNavbar } from "../../components/RegistNavbar";
+
 export const Register = () => {
-  return <h1>Register</h1>;
+  return (
+    <Wrapper>
+      <WrappContainer>
+        <RegistNavbar />
+        <RegistForm />
+      </WrappContainer>
+    </Wrapper>
+  );
 };
