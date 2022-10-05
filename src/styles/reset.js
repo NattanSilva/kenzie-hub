@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
 
     --feedback-sucess: #3FE864;
     --feedback-negative: #E83F5B;
+
+    --form-border-radius: .25rem;
   }
 
   * {
@@ -26,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     text-decoration: none;
     border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    background: var(--gray-4);
   }
 
   button {
