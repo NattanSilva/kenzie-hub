@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import {
   FormBtn,
   FormContainer,
@@ -11,7 +11,9 @@ import {
   SwitchPageBtn,
 } from "./styles";
 
-export const LoginForm = () => {
+export const LoginForm = ({ setIsLoaded }) => {
+  const navigate = useNavigate();
+
   return (
     <FormContainer>
       <MainTitle>Login</MainTitle>
@@ -27,7 +29,12 @@ export const LoginForm = () => {
         <FormBtn type="submit">Entrar</FormBtn>
       </MainForm>
       <SubTitle>Ainda não possui uma conta?</SubTitle>
-      <SwitchPageBtn to="/register" onClick={() => setIsLoaded(false)}>
+      <SwitchPageBtn
+        onClick={() => {
+          setIsLoaded(false);
+          navigate("/register");
+        }}
+      >
         Cadastre-se
       </SwitchPageBtn>
     </FormContainer>

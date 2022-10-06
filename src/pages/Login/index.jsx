@@ -16,7 +16,7 @@ export const Login = ({ isLoaded, setIsLoaded }) => {
           <LogoType>
             <img src={Logo} alt="Logo escrtio KenzieHub" />
           </LogoType>
-          <LoginForm />
+          <LoginForm setIsLoaded={setIsLoaded} />
         </WrappContainer>
       ) : (
         <Loader />
