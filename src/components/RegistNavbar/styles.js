@@ -60,7 +60,7 @@ export const NavBox = styled.div`
   }
 `;
 
-export const BackBtn = styled(Link)`
+export const BackBtn = styled.button`
   width: 5rem;
   height: 2rem;
   display: flex;

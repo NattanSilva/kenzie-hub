@@ -168,7 +168,7 @@ export const FormBtn = styled.button`
   }
 `;
 
-export const SwitchPageBtn = styled(Link)`
+export const SwitchPageBtn = styled.button`
   width: 100%;
   height: 2.375rem;
   display: flex;
