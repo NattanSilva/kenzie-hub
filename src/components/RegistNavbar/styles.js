@@ -17,7 +17,7 @@ export const NavBox = styled.div`
       width: 10rem;
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1000px) {
       width: 7.625rem;
       height: 1.25rem;
     }
@@ -55,7 +55,7 @@ export const NavBox = styled.div`
     margin-top: 16rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     margin-top: 24rem;
   }
 `;
@@ -87,7 +87,7 @@ export const BackBtn = styled.button`
     font-size: 1.3rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     width: 4.25rem;
     height: 2.5rem;
     font-size: 0.75rem;

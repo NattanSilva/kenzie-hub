@@ -39,7 +39,7 @@ export const WrappContainer = styled.div`
     width: 38.75rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     width: 22.5rem;
   }
 `;
@@ -58,7 +58,7 @@ export const LogoType = styled.div`
       width: 10rem;
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1000px) {
       height: 1.25rem;
       width: 9rem;
     }

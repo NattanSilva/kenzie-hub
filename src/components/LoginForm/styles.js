@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
     gap: 1.5rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     width: 22.5rem;
     gap: 1.25rem;
   }
@@ -49,7 +49,7 @@ export const FormContainer = styled.div`
       font-size: 1.3rem;
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1000px) {
       height: 3rem;
       font-size: 1rem;
     }
@@ -67,7 +67,7 @@ export const MainTitle = styled.h3`
     font-size: 1.5rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     font-size: 1.125rem;
   }
 `;
@@ -84,7 +84,7 @@ export const SubTitle = styled.p`
     font-size: 1.2rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     font-size: 0.75rem;
   }
 `;
@@ -99,7 +99,7 @@ export const MainForm = styled.form`
     gap: 1.5rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     gap: 1.25rem;
   }
 `;
@@ -122,7 +122,7 @@ export const InputTitle = styled.label`
     font-size: 1.1rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     font-size: 0.75rem;
   }
 `;
@@ -152,7 +152,7 @@ export const InputContent = styled.input`
     font-size: 1.3rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     height: 3rem;
     font-size: 1rem;
   }
@@ -193,7 +193,7 @@ export const SwitchPageBtn = styled.button`
     font-size: 1.3rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     height: 3rem;
     font-size: 1rem;
   }
