@@ -15,6 +15,15 @@ export const FormContainer = styled.div`
     margin-bottom: 2.5rem;
   }
 
+  @media (min-width: 760px) {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1100px) {
+    width: 22.5rem;
+    gap: 1.25rem;
+  }
+
   h3,
   label {
     color: var(--gray-0);
@@ -30,16 +39,54 @@ export const FormContainer = styled.div`
     height: 2.375rem;
     font-size: 0.75rem;
     color: var(--white-fixed);
+
+    @media (min-width: 400px) {
+      font-size: 1rem;
+    }
+
+    @media (min-width: 760px) {
+      height: 4rem;
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: 1100px) {
+      height: 3rem;
+      font-size: 1rem;
+    }
   }
 `;
 
 export const MainTitle = styled.h3`
   font-size: 1rem;
+
+  @media (min-width: 400px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 760px) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 1100px) {
+    font-size: 1.125rem;
+  }
 `;
 
 export const SubTitle = styled.p`
   font-size: 0.625rem;
   color: var(--gray-1);
+
+  @media (min-width: 400px) {
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 760px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 1100px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const MainForm = styled.form`
@@ -47,6 +94,14 @@ export const MainForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (min-width: 760px) {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1100px) {
+    gap: 1.25rem;
+  }
 `;
 
 export const FormInput = styled.div`
@@ -58,6 +113,18 @@ export const FormInput = styled.div`
 
 export const InputTitle = styled.label`
   font-size: 0.625rem;
+
+  @media (min-width: 400px) {
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 760px) {
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 1100px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const InputContent = styled.input`
@@ -74,11 +141,27 @@ export const InputContent = styled.input`
   &::placeholder {
     color: var(--gray-1);
   }
+
+  @media (min-width: 400px) {
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 1100px) {
+    height: 3rem;
+    font-size: 1rem;
+  }
 `;
 
 export const FormBtn = styled.button`
   background: var(--primary);
   font-weight: 500;
+  font-size: 0.75rem;
 
   &:hover {
     background: var(--primary-50);
@@ -99,5 +182,19 @@ export const SwitchPageBtn = styled(Link)`
 
   &:hover {
     background: var(--gray-2);
+  }
+
+  @media (min-width: 400px) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 1100px) {
+    height: 3rem;
+    font-size: 1rem;
   }
 `;
