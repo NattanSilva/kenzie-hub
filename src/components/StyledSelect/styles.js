@@ -15,7 +15,7 @@ const customStyle = {
       height: "4rem",
       fontSize: "1.3rem",
     },
-    "@media (min-width: 1100px)": {
+    "@media (min-width: 1000px)": {
       height: "3rem",
       fontSize: "1rem",
     },
@@ -51,7 +51,7 @@ const customStyle = {
       height: "4rem",
       fontSize: "1.3rem",
     },
-    "@media (min-width: 1100px)": {
+    "@media (min-width: 1000px)": {
       height: "3rem",
       fontSize: "1rem",
     },
@@ -77,7 +77,7 @@ const customStyle = {
     "@media (min-width: 760px)": {
       fontSize: "1.3rem",
     },
-    "@media (min-width: 1100px)": {
+    "@media (min-width: 1000px)": {
       fontSize: "1rem",
     },
   }),
