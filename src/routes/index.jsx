@@ -13,17 +13,15 @@ const RoutesMain = () => {
       <Route
         path="/"
         element={<Login isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
-      />
+      ></Route>
       <Route
         path="/register"
         element={<Register isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
       />
-      {token && (
-        <Route
-          path="/dashboard"
-          element={<DashBoard isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
-        />
-      )}
+      <Route
+        path="/dashboard"
+        element={<DashBoard isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
+      />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

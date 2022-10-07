@@ -7,7 +7,7 @@ import { DashWrapper, LoaderWrapper } from "./styles";
 
 export const DashBoard = ({ isLoaded, setIsLoaded }) => {
   useEffect(() => {
-    setIsLoaded(true);
+    setTimeout(() => setIsLoaded(true), 1000);
   }, []);
 
   return (
