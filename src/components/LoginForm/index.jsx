@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Api from "../../services/Api";
 import {
   FormBtn,
@@ -14,6 +14,7 @@ import {
   SubTitle,
   SwitchPageBtn,
 } from "./styles";
+import { toast } from "react-toastify";
 
 const schema = yup.object({
   email: yup
@@ -22,7 +23,7 @@ const schema = yup.object({
     .required("Email obrigatório"),
   password: yup
     .string()
-    .min(8, "Mínimo de 8 caracteres")
+    .min(6, "Mínimo de 6 caracteres")
     .required("Senha obrigatória"),
 });
 
@@ -41,13 +42,18 @@ export const LoginForm = ({ setIsLoaded }) => {
   const logUser = (data) => {
     Api.post("/sessions", data)
       .then((res) => {
-        navigate("/dashboard");
+        if (res.data.token) {
+          localStorage.setItem("@userToken", res.data.token);
+          localStorage.setItem("@userId", res.data.user.id);
+          navigate("/dashboard");
+        }
+        toast.success("Login bem sucedido!");
         return res;
       })
       .catch((err) => {
         switch (err.request.status) {
           case 401:
-            alert("Falha: Email e/ou Senha unválidos!");
+            toast.error("Falha: Email e/ou Senha inválidos!");
             break;
         }
         return err;
@@ -84,10 +90,10 @@ export const LoginForm = ({ setIsLoaded }) => {
       </MainForm>
       <SubTitle>Ainda não possui uma conta?</SubTitle>
       <SwitchPageBtn
-        onClick={() => {
-          setIsLoaded(false);
-          navigate("/register");
-        }}
+      onClick={() => {
+        setIsLoaded(false);
+        navigate("/register");
+      }}
       >
         Cadastre-se
       </SwitchPageBtn>
