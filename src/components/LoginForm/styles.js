@@ -31,7 +31,6 @@ export const FormContainer = styled.div`
 
   p,
   span {
-    color: var(--gray-1);
   }
 
   button {
@@ -196,5 +195,23 @@ export const SwitchPageBtn = styled.button`
   @media (min-width: 1000px) {
     height: 3rem;
     font-size: 1rem;
+  }
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 0.5rem;
+  font-weight: 500;
+  color: var(--feedback-negative);
+
+  @media (min-width: 400px) {
+    font-size: 0.625rem;
+  }
+
+  @media (min-width: 760px) {
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 0.65rem;
   }
 `;

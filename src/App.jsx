@@ -9,6 +9,7 @@ function App() {
       <GlobalStyle />
       <RoutesMain />
       <ToastContainer
+        theme="colored"
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}

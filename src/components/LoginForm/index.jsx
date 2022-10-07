@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Api from "../../services/Api";
 import {
+  ErrorMessage,
   FormBtn,
   FormContainer,
   FormInput,
@@ -74,7 +75,7 @@ export const LoginForm = ({ setIsLoaded }) => {
             placeholder="Digite seu email"
             {...register("email")}
           />
-          <p>{errors.email?.message}</p>
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
         </FormInput>
         <FormInput>
           <InputTitle htmlFor="password">Senha</InputTitle>
@@ -84,16 +85,16 @@ export const LoginForm = ({ setIsLoaded }) => {
             placeholder="Digite sua senha"
             {...register("password")}
           />
-          <p>{errors.password?.message}</p>
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
         </FormInput>
         <FormBtn type="submit">Entrar</FormBtn>
       </MainForm>
       <SubTitle>Ainda não possui uma conta?</SubTitle>
       <SwitchPageBtn
-      onClick={() => {
-        setIsLoaded(false);
-        navigate("/register");
-      }}
+        onClick={() => {
+          setIsLoaded(false);
+          navigate("/register");
+        }}
       >
         Cadastre-se
       </SwitchPageBtn>
