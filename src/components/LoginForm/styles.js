@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -108,6 +107,53 @@ export const FormInput = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  select {
+    width: 100%;
+    height: 2.375rem;
+    background-color: #343b41;
+    font-size: 0.813rem;
+    color: #868e96;
+    box-shadow: none;
+    border: none;
+
+    @media (min-width: 400px) {
+      fontsize: 1rem;
+    }
+
+    @media (min-width: 1000px) {
+      height: 3rem;
+      fontsize: 1rem;
+    }
+
+    option {
+      width: 100%;
+      height: 2.375rem;
+      background-color: #343b41;
+      font-size: 0.813rem;
+      color: #868e96;
+      border-bottom: 1px solid #868e96;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #868e963b;
+      }
+
+      @media (min-width: 400px) {
+        fontsize: 1rem;
+      }
+
+      @media (min-width: 760px) {
+        height: 4rem;
+        fontsize: 1.3rem;
+      }
+
+      @media (min-width: 1000px) {
+        height: 3rem;
+        fontsize: 1rem;
+      }
+    }
+  }
 `;
 
 export const InputTitle = styled.label`
