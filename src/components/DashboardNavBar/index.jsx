@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
 import { Header, HeaderContainer, HeaderLogo, LogoutBtn } from "./styles";
 
-export const DashBoardNavBar = () => {
+export const DashBoardNavBar = ({ setIsLoaded }) => {
   const navigate = useNavigate();
 
   return (
@@ -12,6 +12,7 @@ export const DashBoardNavBar = () => {
         <LogoutBtn
           onClick={() => {
             localStorage.clear();
+            setIsLoaded(false);
             navigate("/");
           }}
         >

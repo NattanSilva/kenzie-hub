@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Header = styled.header`
@@ -24,11 +25,15 @@ export const HeaderLogo = styled.img`
 export const LogoutBtn = styled.button`
   width: 3.5rem;
   height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--gray-3);
   border-radius: var(--form-border-radius);
   font-weight: 600;
   font-size: 0.75rem;
   color: var(--gray-0);
+  transition: 0.3s ease-in-out;
 
   &:hover {
     background: var(--gray-2);
