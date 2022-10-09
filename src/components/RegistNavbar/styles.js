@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavBox = styled.div`
@@ -6,7 +5,7 @@ export const NavBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24rem;
+  margin-top: 30rem;
 
   img {
     width: 6.125rem;
@@ -24,39 +23,39 @@ export const NavBox = styled.div`
   }
 
   @media (min-width: 360px) {
-    margin-top: 8rem;
-  }
-
-  @media (width: 375px) {
     margin-top: 14rem;
   }
 
-  @media (min-width: 380px) {
-    margin-top: 6rem;
-  }
-
-  @media (width: 390px) {
-    margin-top: 10rem;
-  }
-
-  @media (min-width: 400px) {
-    margin-top: 2rem;
-  }
-
-  @media (width: 414px) {
-    margin-top: 8rem;
-  }
-
-  @media (width: 428px) {
-    margin-top: 6rem;
-  }
-
-  @media (min-width: 760px) {
+  @media (width: 375px) {
     margin-top: 16rem;
   }
 
+  @media (min-width: 380px) {
+    margin-top: 8rem;
+  }
+
+  @media (width: 390px) {
+    margin-top: 12rem;
+  }
+
+  @media (min-width: 400px) {
+    margin-top: 4rem;
+  }
+
+  @media (width: 414px) {
+    margin-top: 10rem;
+  }
+
+  @media (width: 428px) {
+    margin-top: 8rem;
+  }
+
+  @media (min-width: 760px) {
+    margin-top: 18rem;
+  }
+
   @media (min-width: 1000px) {
-    margin-top: 24rem;
+    margin-top: 25rem;
   }
 `;
 

@@ -33,6 +33,8 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     background: var(--gray-4);
+    width: 100vw;
+    height: 100vh;
   }
 
   button {
