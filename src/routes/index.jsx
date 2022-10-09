@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { PrivateRoute } from "../components/PrivateRoute";
 import { DashBoard } from "../pages/Dashboard";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -20,7 +21,11 @@ const RoutesMain = () => {
       />
       <Route
         path="/dashboard"
-        element={<DashBoard isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
+        element={
+          <PrivateRoute>
+            <DashBoard isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
+          </PrivateRoute>
+        }
       />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
