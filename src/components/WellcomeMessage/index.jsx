@@ -1,11 +1,11 @@
 import { Main, MainContainer, UserModule, UserSaudation } from "./styles";
 
-export const WellcomeMessage = () => {
+export const WellcomeMessage = ({ userData }) => {
   return (
     <Main>
       <MainContainer>
-        <UserSaudation>Olá, Samuel Leão</UserSaudation>
-        <UserModule>Primeiro módulo (Introdução ao Frontend)</UserModule>
+        <UserSaudation>Olá, {userData.name}</UserSaudation>
+        <UserModule>{userData.course_module}</UserModule>
       </MainContainer>
     </Main>
   );
