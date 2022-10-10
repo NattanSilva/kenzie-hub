@@ -11,21 +11,22 @@ import { toast } from "react-toastify";
 export const DashBoard = ({ isLoaded, setIsLoaded }) => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    Api.get(`/users/${id}`)
-      .then((res) => {
-        setUserData(res.data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        toast.error(`Falha: ${err.message}`);
-      });
-
-    console.log(userData);
+    async function getUserData() {
+      await Api.get(`/users/${id}`)
+        .then((res) => {
+          setUserData(res.data);
+          setIsLoaded(true);
+        })
+        .catch((err) => {
+          toast.error(`Falha: ${err.message}`);
+        });
+    }
+    getUserData();
   }, []);
 
   return (
     <DashWrapper>
-      {isLoaded ? (
+      {isLoaded && userData.length !== 0 ? (
         <>
           <DashBoardNavBar setIsLoaded={setIsLoaded} />
           <WellcomeMessage userData={userData} />
