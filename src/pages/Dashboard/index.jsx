@@ -5,19 +5,19 @@ import { InDevelopment } from "../../components/InDevelopment";
 import { Loader } from "../../components/Loader";
 import { WellcomeMessage } from "../../components/WellcomeMessage";
 import { DashWrapper, LoaderWrapper } from "./styles";
-import { set } from "react-hook-form";
 import { toast } from "react-toastify";
 
 export const DashBoard = ({ isLoaded, setIsLoaded }) => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
     async function getUserData() {
-      await Api.get(`/users/${id}`)
+      await Api.get(`/users/${localStorage.getItem("@userId")}`)
         .then((res) => {
           setUserData(res.data);
           setIsLoaded(true);
         })
         .catch((err) => {
+          console.log(err);
           toast.error(`Falha: ${err.message}`);
         });
     }

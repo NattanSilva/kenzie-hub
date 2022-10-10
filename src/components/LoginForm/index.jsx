@@ -40,8 +40,8 @@ export const LoginForm = ({ setIsLoaded }) => {
     resolver: yupResolver(schema),
   });
 
-  const logUser = (data) => {
-    Api.post("/sessions", data)
+  const logUser = async (data) => {
+    await Api.post("/sessions", data)
       .then((res) => {
         if (res.data.token) {
           localStorage.setItem("@userToken", res.data.token);

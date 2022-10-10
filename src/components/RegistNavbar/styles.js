@@ -5,7 +5,7 @@ export const NavBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30rem;
+  margin-top: 10rem;
 
   img {
     width: 6.125rem;
@@ -27,11 +27,11 @@ export const NavBox = styled.div`
   }
 
   @media (width: 375px) {
-    margin-top: 16rem;
+    margin-top: 12rem;
   }
 
   @media (min-width: 380px) {
-    margin-top: 8rem;
+    margin-top: 11rem;
   }
 
   @media (width: 390px) {
@@ -39,19 +39,19 @@ export const NavBox = styled.div`
   }
 
   @media (min-width: 400px) {
-    margin-top: 4rem;
+    margin-top: 14rem;
   }
 
   @media (width: 414px) {
-    margin-top: 10rem;
+    margin-top: 16rem;
   }
 
   @media (width: 428px) {
-    margin-top: 8rem;
+    margin-top: 15rem;
   }
 
   @media (min-width: 760px) {
-    margin-top: 18rem;
+    margin-top: 36rem;
   }
 
   @media (min-width: 1000px) {
