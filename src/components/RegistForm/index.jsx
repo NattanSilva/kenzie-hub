@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 import {
   FormContainer,
   MainForm,
@@ -13,9 +14,6 @@ import {
   FormBtn,
   ErrorMessage,
 } from "../LoginForm/styles";
-import Api from "../../services/Api";
-import { toast } from "react-toastify";
-import { useState } from "react";
 
 const schema = yup.object({
   name: yup.string().required("Nome obrigatório"),
@@ -40,7 +38,7 @@ const schema = yup.object({
 });
 
 export const RegistForm = () => {
-  const navigate = useState();
+  const { registUser } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -52,15 +50,7 @@ export const RegistForm = () => {
 
   const regist = (data) => {
     delete data.confirmPassword;
-    Api.post("/users", data)
-      .then((res) => {
-        if (res.data) {
-          toast.success("Conta criada com sucesso!");
-        }
-      })
-      .catch((err) => {
-        toast.error(`Falha: ${err.response.data.message}!`);
-      });
+    registUser(data);
     reset();
   };
 

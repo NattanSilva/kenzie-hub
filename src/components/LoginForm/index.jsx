@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
-import Api from "../../services/Api";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { useContext } from "react";
 import {
   ErrorMessage,
   FormBtn,
@@ -15,7 +15,7 @@ import {
   SubTitle,
   SwitchPageBtn,
 } from "./styles";
-import { toast } from "react-toastify";
+import { UserContext } from "../../providers/UserContext";
 
 const schema = yup.object({
   email: yup
@@ -28,9 +28,9 @@ const schema = yup.object({
     .required("Senha obrigatória"),
 });
 
-export const LoginForm = ({ setIsLoaded }) => {
-  const navigate = useNavigate();
-
+export const LoginForm = () => {
+  const { setIsLoaded } = useContext(LoadingContext);
+  const { logUser } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -40,31 +40,13 @@ export const LoginForm = ({ setIsLoaded }) => {
     resolver: yupResolver(schema),
   });
 
-  const logUser = (data) => {
-    Api.post("/sessions", data)
-      .then((res) => {
-        if (res.data.token) {
-          localStorage.setItem("@userToken", res.data.token);
-          localStorage.setItem("@userId", res.data.user.id);
-          navigate("/dashboard");
-        }
-        toast.success("Login bem sucedido!");
-        return res;
-      })
-      .catch((err) => {
-        switch (err.request.status) {
-          case 401:
-            toast.error("Falha: Email e/ou Senha inválidos!");
-            break;
-        }
-        return err;
-      });
-
+  const login = async (data) => {
+    logUser(data);
     reset();
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit(logUser)}>
+    <FormContainer onSubmit={handleSubmit(login)}>
       <MainTitle>Login</MainTitle>
       <MainForm>
         <FormInput>
@@ -93,8 +75,8 @@ export const LoginForm = ({ setIsLoaded }) => {
       <SwitchPageBtn
         onClick={() => {
           setIsLoaded(false);
-          navigate("/register");
         }}
+        to="/register"
       >
         Cadastre-se
       </SwitchPageBtn>

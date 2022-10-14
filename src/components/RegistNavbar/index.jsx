@@ -1,8 +1,11 @@
 import { BackBtn, NavBox } from "./styles";
 import Logo from "../../assets/images/Logo.svg";
 import { useNavigate } from "react-router-dom";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { useContext } from "react";
 
-export const RegistNavbar = ({ setIsLoaded }) => {
+export const RegistNavbar = () => {
+  const { setIsLoaded } = useContext(LoadingContext);
   const navigate = useNavigate();
 
   return (
@@ -11,8 +14,8 @@ export const RegistNavbar = ({ setIsLoaded }) => {
       <BackBtn
         onClick={() => {
           setIsLoaded(false);
-          navigate("/");
         }}
+        to="/"
       >
         Voltar
       </BackBtn>

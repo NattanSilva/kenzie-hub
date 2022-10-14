@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -11,7 +12,7 @@ export const FormContainer = styled.div`
   border-radius: var(--form-border-radius);
 
   &.register {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 
   @media (min-width: 760px) {
@@ -20,7 +21,7 @@ export const FormContainer = styled.div`
 
   @media (min-width: 1000px) {
     width: 22.5rem;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   h3,
@@ -98,7 +99,7 @@ export const MainForm = styled.form`
   }
 
   @media (min-width: 1000px) {
-    gap: 1.25rem;
+    gap: 1rem;
   }
 `;
 
@@ -140,17 +141,17 @@ export const FormInput = styled.div`
       }
 
       @media (min-width: 400px) {
-        fontsize: 1rem;
+        font-size: 1rem;
       }
 
       @media (min-width: 760px) {
         height: 4rem;
-        fontsize: 1.3rem;
+        font-size: 1.3rem;
       }
 
       @media (min-width: 1000px) {
         height: 3rem;
-        fontsize: 1rem;
+        font-size: 1rem;
       }
     }
   }
@@ -213,7 +214,7 @@ export const FormBtn = styled.button`
   }
 `;
 
-export const SwitchPageBtn = styled.button`
+export const SwitchPageBtn = styled(Link)`
   width: 100%;
   height: 2.375rem;
   display: flex;

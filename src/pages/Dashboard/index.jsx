@@ -1,20 +1,27 @@
-import { useEffect } from "react";
+import Api, { id } from "../../services/Api";
+import { useContext, useEffect, useState } from "react";
 import { DashBoardNavBar } from "../../components/DashboardNavBar";
 import { InDevelopment } from "../../components/InDevelopment";
 import { Loader } from "../../components/Loader";
 import { WellcomeMessage } from "../../components/WellcomeMessage";
 import { DashWrapper, LoaderWrapper } from "./styles";
+import { toast } from "react-toastify";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { UserContext } from "../../providers/UserContext";
 
-export const DashBoard = ({ isLoaded, setIsLoaded }) => {
+export const DashBoard = () => {
+  const { isLoaded, setIsLoaded } = useContext(LoadingContext);
+  const { getUserData, userData } = useContext(UserContext);
   useEffect(() => {
-    setTimeout(() => setIsLoaded(true), 1000);
+    getUserData();
+    setIsLoaded(true)
   }, []);
 
   return (
     <DashWrapper>
-      {isLoaded ? (
+      {isLoaded && userData.length !== 0 ? (
         <>
-          <DashBoardNavBar setIsLoaded={setIsLoaded} />
+          <DashBoardNavBar />
           <WellcomeMessage />
           <InDevelopment />
         </>
