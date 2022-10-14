@@ -1,35 +1,28 @@
 import Api, { id } from "../../services/Api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DashBoardNavBar } from "../../components/DashboardNavBar";
 import { InDevelopment } from "../../components/InDevelopment";
 import { Loader } from "../../components/Loader";
 import { WellcomeMessage } from "../../components/WellcomeMessage";
 import { DashWrapper, LoaderWrapper } from "./styles";
 import { toast } from "react-toastify";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { UserContext } from "../../providers/UserContext";
 
-export const DashBoard = ({ isLoaded, setIsLoaded }) => {
-  const [userData, setUserData] = useState([]);
+export const DashBoard = () => {
+  const { isLoaded, setIsLoaded } = useContext(LoadingContext);
+  const { getUserData, userData } = useContext(UserContext);
   useEffect(() => {
-    async function getUserData() {
-      await Api.get(`/users/${localStorage.getItem("@userId")}`)
-        .then((res) => {
-          setUserData(res.data);
-          setIsLoaded(true);
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error(`Falha: ${err.message}`);
-        });
-    }
     getUserData();
+    setIsLoaded(true)
   }, []);
 
   return (
     <DashWrapper>
       {isLoaded && userData.length !== 0 ? (
         <>
-          <DashBoardNavBar setIsLoaded={setIsLoaded} />
-          <WellcomeMessage userData={userData} />
+          <DashBoardNavBar />
+          <WellcomeMessage />
           <InDevelopment />
         </>
       ) : (

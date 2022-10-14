@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavBox = styled.div`
@@ -59,7 +60,7 @@ export const NavBox = styled.div`
   }
 `;
 
-export const BackBtn = styled.button`
+export const BackBtn = styled(Link)`
   width: 5rem;
   height: 2rem;
   display: flex;

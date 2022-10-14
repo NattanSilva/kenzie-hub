@@ -1,19 +1,21 @@
 import { WrappContainer, Wrapper } from "../Login/styles";
 import { RegistForm } from "../../components/RegistForm";
 import { RegistNavbar } from "../../components/RegistNavbar";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Loader } from "../../components/Loader";
+import { LoadingContext } from "../../providers/LoadingContext";
 
-export const Register = ({ isLoaded, setIsLoaded }) => {
+export const Register = () => {
+  const { isLoaded, setIsLoaded } = useContext(LoadingContext);
   useEffect(() => {
-    setTimeout(() => setIsLoaded(true), 1000);
+    setIsLoaded(true);
   }, []);
 
   return (
     <Wrapper>
       {isLoaded ? (
         <WrappContainer>
-          <RegistNavbar setIsLoaded={setIsLoaded} />
+          <RegistNavbar />
           <RegistForm />
         </WrappContainer>
       ) : (
