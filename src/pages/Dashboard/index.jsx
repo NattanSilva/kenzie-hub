@@ -8,13 +8,14 @@ import { DashWrapper, LoaderWrapper } from "./styles";
 import { toast } from "react-toastify";
 import { LoadingContext } from "../../providers/LoadingContext";
 import { UserContext } from "../../providers/UserContext";
+import { Technologies } from "../../components/Technologies";
 
 export const DashBoard = () => {
   const { isLoaded, setIsLoaded } = useContext(LoadingContext);
   const { getUserData, userData } = useContext(UserContext);
   useEffect(() => {
     getUserData();
-    setIsLoaded(true)
+    setIsLoaded(true);
   }, []);
 
   return (
@@ -23,7 +24,7 @@ export const DashBoard = () => {
         <>
           <DashBoardNavBar />
           <WellcomeMessage />
-          <InDevelopment />
+          <Technologies />
         </>
       ) : (
         <LoaderWrapper>
