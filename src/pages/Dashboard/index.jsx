@@ -1,18 +1,18 @@
-import Api, { id } from "../../services/Api";
 import { useContext, useEffect, useState } from "react";
 import { DashBoardNavBar } from "../../components/DashboardNavBar";
-import { InDevelopment } from "../../components/InDevelopment";
 import { Loader } from "../../components/Loader";
 import { WellcomeMessage } from "../../components/WellcomeMessage";
 import { DashWrapper, LoaderWrapper } from "./styles";
-import { toast } from "react-toastify";
 import { LoadingContext } from "../../providers/LoadingContext";
 import { UserContext } from "../../providers/UserContext";
 import { Technologies } from "../../components/Technologies";
+import { TechsContext } from "../../providers/TechsContext";
+import { CreateModal } from "../../components/CreateModal";
 
 export const DashBoard = () => {
   const { isLoaded, setIsLoaded } = useContext(LoadingContext);
   const { getUserData, userData } = useContext(UserContext);
+  const { activeModal } = useContext(TechsContext);
   useEffect(() => {
     getUserData();
     setIsLoaded(true);
@@ -31,6 +31,7 @@ export const DashBoard = () => {
           <Loader />
         </LoaderWrapper>
       )}
+      {activeModal && <CreateModal />}
     </DashWrapper>
   );
 };

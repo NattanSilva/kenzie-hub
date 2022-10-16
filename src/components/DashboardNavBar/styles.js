@@ -7,7 +7,17 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--gray-4);
   border-bottom: 1px solid var(--gray-3);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
 
   @media (min-width: 760px) {
     height: 6rem;

@@ -133,6 +133,10 @@ export const TechItem = styled.li`
     background: var(--gray-2);
   }
 
+  &.void {
+    background: transparent;
+  }
+
   @media (min-width: 700px) {
     height: 4.5rem;
   }
@@ -224,5 +228,26 @@ export const ItemRemoveBtn = styled.button`
     width: 0.875rem;
     height: 0.875rem;
     display: flex;
+  }
+`;
+
+export const VoidTitle = styled.p`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: var(--gray-1);
+
+  @media (min-width: 375px) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 1.8rem;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 1rem;
   }
 `;

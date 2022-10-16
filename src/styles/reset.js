@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
     --white-fixed: #FFF;
     --black-fixed: #000;
+    --black-50: rgba(18, 18, 20, 0.5);
 
     --feedback-sucess: #3FE864;
     --feedback-negative: #E83F5B;

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const Main = styled.div`
   width: 100%;
   min-height: 8.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 0.75rem;
+  margin-top: 4.5rem;
   border-bottom: 1px solid var(--gray-3);
 
   @media (min-width: 760px) {
