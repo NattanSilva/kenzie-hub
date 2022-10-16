@@ -3,6 +3,7 @@ import { PrivateRoute } from "../components/PrivateRoute";
 import { DashBoard } from "../pages/Dashboard";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
+import { TechsProvider } from "../providers/TechsContext";
 
 const RoutesMain = () => {
   return (
@@ -13,7 +14,9 @@ const RoutesMain = () => {
         path="/dashboard"
         element={
           <PrivateRoute>
-            <DashBoard />
+            <TechsProvider>
+              <DashBoard />
+            </TechsProvider>
           </PrivateRoute>
         }
       />
