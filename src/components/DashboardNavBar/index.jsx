@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
+import { LoadingContext } from "../../providers/LoadingContext";
 import { Header, HeaderContainer, HeaderLogo, LogoutBtn } from "./styles";
 
-export const DashBoardNavBar = ({ setIsLoaded }) => {
+export const DashBoardNavBar = () => {
+  const { setIsLoaded } = useContext(LoadingContext);
   const navigate = useNavigate();
 
   return (

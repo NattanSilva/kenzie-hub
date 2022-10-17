@@ -1,29 +1,22 @@
-import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "../components/PrivateRoute";
 import { DashBoard } from "../pages/Dashboard";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
-import { token } from "../services/Api";
+import { TechsProvider } from "../providers/TechsContext";
 
 const RoutesMain = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Login isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
-      ></Route>
-      <Route
-        path="/register"
-        element={<Register isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
-      />
+      <Route path="/" element={<Login />}></Route>
+      <Route path="/register" element={<Register />} />
       <Route
         path="/dashboard"
         element={
           <PrivateRoute>
-            <DashBoard isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
+            <TechsProvider>
+              <DashBoard />
+            </TechsProvider>
           </PrivateRoute>
         }
       />

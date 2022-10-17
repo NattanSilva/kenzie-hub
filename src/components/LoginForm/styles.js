@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -213,7 +214,7 @@ export const FormBtn = styled.button`
   }
 `;
 
-export const SwitchPageBtn = styled.button`
+export const SwitchPageBtn = styled(Link)`
   width: 100%;
   height: 2.375rem;
   display: flex;
