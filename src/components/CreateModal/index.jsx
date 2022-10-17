@@ -56,7 +56,7 @@ export const CreateModal = () => {
               placeholder="Digite a tecnologia"
               {...register("title")}
             />
-            <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
           </FormInputBox>
           <FormInputBox>
             <FormLabel htmlFor="status">status</FormLabel>
