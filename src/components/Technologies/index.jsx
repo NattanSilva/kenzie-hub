@@ -19,7 +19,7 @@ import {
 
 export const Technologies = () => {
   const { userData } = useContext(UserContext);
-  const { setActiveModal, setModalType, setActualEditTech } =
+  const { setActiveModal, setModalType, setActualEditTech, deleteTech } =
     useContext(TechsContext);
   const [techsList, setTechsList] = useState([]);
 
@@ -57,7 +57,11 @@ export const Technologies = () => {
                   <ItemStatus>{tech.status}</ItemStatus>
                 </ItemHeader>
                 <ItemFooter>
-                  <ItemRemoveBtn>
+                  <ItemRemoveBtn
+                    onClick={() => {
+                      deleteTech(tech.id);
+                    }}
+                  >
                     <img src={Trash} alt="Imagem de um cesto de lixo" />
                   </ItemRemoveBtn>
                 </ItemFooter>
