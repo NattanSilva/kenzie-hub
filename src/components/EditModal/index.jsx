@@ -1,14 +1,15 @@
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import { TechsContext } from "../../providers/TechsContext";
 import {
-  FormBtn,
-  FormErrorMessage,
+  FormDeleteBtn,
+  FormFooter,
   FormInput,
   FormInputBox,
   FormLabel,
+  FormSaveBtn,
   FormSelect,
   Modal,
   ModalCloseBtn,
@@ -17,26 +18,26 @@ import {
   ModalHeader,
   ModalTitle,
   SelectOption,
-} from "./styles";
+} from "../CreateModal/styles";
 
 const schema = yup.object({
-  title: yup.string().required("Nome é obrigatorio"),
-  status: yup.string().required("Nível obrigatório"),
+  status: yup.string(),
 });
 
-export const CreateModal = () => {
-  const { setActiveModal, createTech, setModalType } = useContext(TechsContext);
+export const EditModal = () => {
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+    editTech,
+    deleteTech,
+    setActiveModal,
+    setModalType,
+    actualEditTech: { id: itemID, title, status },
+  } = useContext(TechsContext);
+  const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const registTech = (data) => {
-    createTech(data);
+  const handleEditTech = (data) => {
+    editTech(itemID, data);
     reset();
   };
 
@@ -44,7 +45,7 @@ export const CreateModal = () => {
     <ModalContainer>
       <Modal>
         <ModalHeader>
-          <ModalTitle>Cadastrar Tecnologia</ModalTitle>
+          <ModalTitle>Tecnologia Detalhes</ModalTitle>
           <ModalCloseBtn
             onClick={() => {
               setActiveModal(false);
@@ -54,16 +55,16 @@ export const CreateModal = () => {
             x
           </ModalCloseBtn>
         </ModalHeader>
-        <ModalForm onSubmit={handleSubmit(registTech)}>
+        <ModalForm onSubmit={handleSubmit(handleEditTech)}>
           <FormInputBox>
-            <FormLabel htmlFor="title">Nome</FormLabel>
+            <FormLabel htmlFor="title">Nome do projeto</FormLabel>
             <FormInput
+              disabled
               type="text"
               id="title"
               placeholder="Digite a tecnologia"
-              {...register("title")}
+              value={title}
             />
-            <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
           </FormInputBox>
           <FormInputBox>
             <FormLabel htmlFor="status">status</FormLabel>
@@ -79,7 +80,17 @@ export const CreateModal = () => {
               </SelectOption>
             </FormSelect>
           </FormInputBox>
-          <FormBtn type="submit">Cadastrar</FormBtn>
+          <FormFooter>
+            <FormSaveBtn type="submit">Salvar alterações</FormSaveBtn>
+            <FormDeleteBtn
+              type="button"
+              onClick={() => {
+                deleteTech(itemID);
+              }}
+            >
+              Excluir
+            </FormDeleteBtn>
+          </FormFooter>
         </ModalForm>
       </Modal>
     </ModalContainer>

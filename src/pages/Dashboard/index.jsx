@@ -8,11 +8,12 @@ import { UserContext } from "../../providers/UserContext";
 import { Technologies } from "../../components/Technologies";
 import { TechsContext } from "../../providers/TechsContext";
 import { CreateModal } from "../../components/CreateModal";
+import { EditModal } from "../../components/EditModal";
 
 export const DashBoard = () => {
   const { isLoaded, setIsLoaded } = useContext(LoadingContext);
   const { getUserData, userData } = useContext(UserContext);
-  const { activeModal } = useContext(TechsContext);
+  const { activeModal, modalType } = useContext(TechsContext);
   useEffect(() => {
     getUserData();
     setIsLoaded(true);
@@ -31,7 +32,8 @@ export const DashBoard = () => {
           <Loader />
         </LoaderWrapper>
       )}
-      {activeModal && <CreateModal />}
+      {activeModal && modalType === "create" && <CreateModal />}
+      {activeModal && modalType === "edit" && <EditModal />}
     </DashWrapper>
   );
 };

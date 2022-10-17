@@ -5,6 +5,7 @@ export const TechsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 
   @media (min-width: 360px) {
     width: 336px;
@@ -28,6 +29,7 @@ export const TechsContainer = styled.div`
 
   @media (min-width: 760px) {
     width: 720px;
+    margin-bottom: 2.5rem;
   }
 
   @media (min-width: 800px) {
@@ -40,6 +42,7 @@ export const TechsContainer = styled.div`
 
   @media (min-width: 1000px) {
     width: 900px;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -159,7 +162,6 @@ export const ItemHeader = styled.div`
 `;
 
 export const ItemTitle = styled.button`
-  width: 60%;
   justify-content: start;
   background: none;
   font-size: 0.875rem;
@@ -179,7 +181,6 @@ export const ItemTitle = styled.button`
 `;
 
 export const ItemStatus = styled.button`
-  width: 40%;
   justify-content: end;
   background: none;
   font-size: 0.75rem;
