@@ -206,7 +206,7 @@ export const FormErrorMessage = styled.p`
   }
 
   @media (min-width: 1000px) {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -269,6 +269,71 @@ export const FormBtn = styled.button`
 
   &:hover {
     background: var(--primary-50);
+  }
+
+  @media (min-width: 400px) {
+    height: 3rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    height: 4.5rem;
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 1000px) {
+    height: 3rem;
+    font-size: 1rem;
+  }
+`;
+
+export const FormFooter = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FormSaveBtn = styled.button`
+  width: 60%;
+  height: 2.25rem;
+  background: var(--primary);
+  border-radius: var(--form-border-radius);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--white-fixed);
+
+  &:hover {
+    background: var(--primary-50);
+  }
+
+  @media (min-width: 400px) {
+    height: 3rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    height: 4.5rem;
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 1000px) {
+    height: 3rem;
+    font-size: 1rem;
+  }
+`;
+
+export const FormDeleteBtn = styled.button`
+  width: 32%;
+  height: 2.25rem;
+  background: var(--gray-1);
+  border-radius: var(--form-border-radius);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--white-fixed);
+
+  &:hover {
+    background: var(--gray-2);
   }
 
   @media (min-width: 400px) {

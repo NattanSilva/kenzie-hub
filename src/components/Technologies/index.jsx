@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../providers/UserContext";
 import Trash from "../../assets/images/Trash.svg";
+import { TechsContext } from "../../providers/TechsContext";
+import { UserContext } from "../../providers/UserContext";
 import {
   AddTechBtn,
   ItemFooter,
@@ -15,21 +16,28 @@ import {
   TechsMainTitle,
   VoidTitle,
 } from "./styles";
-import { TechsContext } from "../../providers/TechsContext";
 
 export const Technologies = () => {
   const { userData } = useContext(UserContext);
-  const { setActiveModal } = useContext(TechsContext);
-  const [techsList, setTechsList] = useState([])
+  const { setActiveModal, setModalType, setActualEditTech } =
+    useContext(TechsContext);
+  const [techsList, setTechsList] = useState([]);
 
   useEffect(() => {
-    setTechsList(userData.techs)
-  }, [userData])
+    setTechsList(userData.techs);
+  }, [userData]);
   return (
     <TechsContainer>
       <TechsHeader>
         <TechsMainTitle>Tecnologias</TechsMainTitle>
-        <AddTechBtn onClick={() => setActiveModal(true)}>+</AddTechBtn>
+        <AddTechBtn
+          onClick={() => {
+            setActiveModal(true);
+            setModalType("create");
+          }}
+        >
+          +
+        </AddTechBtn>
       </TechsHeader>
       <TechsList>
         {techsList.length !== 0 ? (
@@ -37,7 +45,15 @@ export const Technologies = () => {
             return (
               <TechItem key={tech.id} className={tech.status}>
                 <ItemHeader>
-                  <ItemTitle>{tech.title}</ItemTitle>
+                  <ItemTitle
+                    onClick={() => {
+                      setActiveModal(true);
+                      setModalType("edit");
+                      setActualEditTech(tech);
+                    }}
+                  >
+                    {tech.title}
+                  </ItemTitle>
                   <ItemStatus>{tech.status}</ItemStatus>
                 </ItemHeader>
                 <ItemFooter>
