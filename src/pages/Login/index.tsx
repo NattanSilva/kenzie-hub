@@ -1,9 +1,9 @@
-import { LoginForm } from "../../components/LoginForm";
-import { LogoType, WrappContainer, Wrapper } from "./styles";
-import Logo from "../../assets/images/Logo.svg";
 import { useContext, useEffect } from "react";
+import Logo from "../../assets/images/Logo.svg";
 import { Loader } from "../../components/Loader";
+import { LoginForm } from "../../components/LoginForm";
 import { LoadingContext } from "../../providers/LoadingContext";
+import { LogoType, WrappContainer, Wrapper } from "./styles";
 
 export const Login = () => {
   const { isLoaded, setIsLoaded } = useContext(LoadingContext);

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Trash from "../../assets/images/Trash.svg";
 import { TechsContext } from "../../providers/TechsContext";
-import { UserContext } from "../../providers/UserContext";
+import { ITech, UserContext } from "../../providers/UserContext";
 import {
   AddTechBtn,
   ItemFooter,
@@ -21,11 +21,12 @@ export const Technologies = () => {
   const { userData } = useContext(UserContext);
   const { setActiveModal, setModalType, setActualEditTech, deleteTech } =
     useContext(TechsContext);
-  const [techsList, setTechsList] = useState([]);
+  const [techsList, setTechsList] = useState<ITech[]>([]);
 
   useEffect(() => {
     setTechsList(userData.techs);
   }, [userData]);
+
   return (
     <TechsContainer>
       <TechsHeader>
@@ -40,8 +41,8 @@ export const Technologies = () => {
         </AddTechBtn>
       </TechsHeader>
       <TechsList>
-        {techsList.length !== 0 ? (
-          techsList.map((tech) => {
+        {techsList?.length !== 0 ? (
+          techsList?.map((tech) => {
             return (
               <TechItem key={tech.id} className={tech.status}>
                 <ItemHeader>

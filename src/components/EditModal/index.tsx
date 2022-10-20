@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { TechsContext } from "../../providers/TechsContext";
+import { IEditedStatus, TechsContext } from "../../providers/TechsContext";
 import {
   FormDeleteBtn,
   FormFooter,
@@ -30,15 +30,14 @@ export const EditModal = () => {
     deleteTech,
     setActiveModal,
     setModalType,
-    actualEditTech: { id: itemID, title, status },
+    actualEditTech: { id: itemID, title },
   } = useContext(TechsContext);
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset } = useForm<IEditedStatus>({
     resolver: yupResolver(schema),
   });
 
-  const handleEditTech = (data) => {
+  const handleEditTech = (data: IEditedStatus) => {
     editTech(itemID, data);
-    reset();
   };
 
   return (

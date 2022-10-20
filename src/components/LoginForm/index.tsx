@@ -1,8 +1,9 @@
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { LoadingContext } from "../../providers/LoadingContext";
-import { useContext } from "react";
+import { ILogUser, UserContext } from "../../providers/UserContext";
 import {
   ErrorMessage,
   FormBtn,
@@ -15,7 +16,6 @@ import {
   SubTitle,
   SwitchPageBtn,
 } from "./styles";
-import { UserContext } from "../../providers/UserContext";
 
 const schema = yup.object({
   email: yup
@@ -24,7 +24,7 @@ const schema = yup.object({
     .required("Email obrigatório"),
   password: yup
     .string()
-    .min(6, "Mínimo de 6 caracteres")
+    .min(8, "Mínimo de 8 caracteres")
     .required("Senha obrigatória"),
 });
 
@@ -36,11 +36,11 @@ export const LoginForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<ILogUser>({
     resolver: yupResolver(schema),
   });
 
-  const login = async (data) => {
+  const login = async (data: ILogUser) => {
     logUser(data);
     reset();
   };

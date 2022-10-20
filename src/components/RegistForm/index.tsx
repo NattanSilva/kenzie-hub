@@ -1,18 +1,18 @@
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useContext } from "react";
-import { UserContext } from "../../providers/UserContext";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { IRegistuser, UserContext } from "../../providers/UserContext";
 import {
+  ErrorMessage,
+  FormBtn,
   FormContainer,
+  FormInput,
+  InputContent,
+  InputTitle,
   MainForm,
   MainTitle,
   SubTitle,
-  FormInput,
-  InputTitle,
-  InputContent,
-  FormBtn,
-  ErrorMessage,
 } from "../LoginForm/styles";
 
 const schema = yup.object({
@@ -44,11 +44,11 @@ export const RegistForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<IRegistuser>({
     resolver: yupResolver(schema),
   });
 
-  const regist = (data) => {
+  const regist = (data: IRegistuser) => {
     delete data.confirmPassword;
     registUser(data);
     reset();
@@ -90,7 +90,6 @@ export const RegistForm = () => {
         <FormInput>
           <InputTitle>Confirmar Senha</InputTitle>
           <InputContent
-            name="confrimPassword"
             id="confrimPassword"
             type="password"
             placeholder="Confirme sua senha"

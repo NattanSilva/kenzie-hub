@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { DashBoardNavBar } from "../../components/DashboardNavBar";
-import { Loader } from "../../components/Loader";
-import { WellcomeMessage } from "../../components/WellcomeMessage";
-import { DashWrapper, LoaderWrapper } from "./styles";
-import { LoadingContext } from "../../providers/LoadingContext";
-import { UserContext } from "../../providers/UserContext";
-import { Technologies } from "../../components/Technologies";
-import { TechsContext } from "../../providers/TechsContext";
+import { useContext, useEffect } from "react";
 import { CreateModal } from "../../components/CreateModal";
+import { DashBoardNavBar } from "../../components/DashboardNavBar";
 import { EditModal } from "../../components/EditModal";
+import { Loader } from "../../components/Loader";
+import { Technologies } from "../../components/Technologies";
+import { WellcomeMessage } from "../../components/WellcomeMessage";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { TechsContext } from "../../providers/TechsContext";
+import { UserContext } from "../../providers/UserContext";
+import { DashWrapper, LoaderWrapper } from "./styles";
 
 export const DashBoard = () => {
   const { isLoaded, setIsLoaded } = useContext(LoadingContext);
@@ -21,7 +21,7 @@ export const DashBoard = () => {
 
   return (
     <DashWrapper>
-      {isLoaded && userData.length !== 0 ? (
+      {isLoaded && userData ? (
         <>
           <DashBoardNavBar />
           <WellcomeMessage />
