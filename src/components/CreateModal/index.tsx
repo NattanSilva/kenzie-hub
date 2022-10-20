@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useContext } from "react";
-import { TechsContext } from "../../providers/TechsContext";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { ICreatedTech, TechsContext } from "../../providers/TechsContext";
 import {
   FormBtn,
   FormErrorMessage,
@@ -31,11 +31,11 @@ export const CreateModal = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<ICreatedTech>({
     resolver: yupResolver(schema),
   });
 
-  const registTech = (data) => {
+  const registTech = (data: ICreatedTech) => {
     createTech(data);
     reset();
   };

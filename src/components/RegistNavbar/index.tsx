@@ -1,12 +1,10 @@
-import { BackBtn, NavBox } from "./styles";
-import Logo from "../../assets/images/Logo.svg";
-import { useNavigate } from "react-router-dom";
-import { LoadingContext } from "../../providers/LoadingContext";
 import { useContext } from "react";
+import Logo from "../../assets/images/Logo.svg";
+import { LoadingContext } from "../../providers/LoadingContext";
+import { BackBtn, NavBox } from "./styles";
 
 export const RegistNavbar = () => {
   const { setIsLoaded } = useContext(LoadingContext);
-  const navigate = useNavigate();
 
   return (
     <NavBox>
